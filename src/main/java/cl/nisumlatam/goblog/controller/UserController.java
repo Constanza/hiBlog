@@ -1,9 +1,8 @@
 package cl.nisumlatam.goblog.controller;
 
-import cl.nisumlatam.goblog.dao.IUserDAO;
 import cl.nisumlatam.goblog.domain.User;
+import cl.nisumlatam.goblog.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,13 +14,12 @@ import java.util.List;
 public class UserController {
 
     @Autowired
-    @Qualifier("mySQLUserDAO")
-    IUserDAO userDAO;
+    IUserService userService;
 
     //CRUD
     @GetMapping("/users")
     public ResponseEntity<List<User>> loadAlUsers() {
-        List<User> users = userDAO.loadAllUsers();
+        List<User> users = userService.loadAllUsers();
         return new ResponseEntity<>(users, HttpStatus.OK);
     }
 }
