@@ -10,6 +10,8 @@ public class MyRowMapper implements RowMapper<User> {
     @Override
     public User mapRow(ResultSet rs, int rowNum) throws SQLException {
         String firstName = rs.getString("first_name");
-        return new User().setFirstName(firstName).setLastName("Castillo");
+        String lastName = rs.getString("last_name");
+
+        return new User().setFirstName(firstName).setLastName(lastName);
     }
 }

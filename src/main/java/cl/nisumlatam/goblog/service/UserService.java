@@ -21,4 +21,9 @@ public class UserService implements IUserService {
     public List<User> loadAllUsers() {
         return userDAO.loadAllUsers();
     }
+
+    @Override
+    public void create(User user) {
+        userDAO.create(user);
+    }
 }

@@ -15,6 +15,26 @@ public class PostgreSQLUserDAO implements IUserDAO {
     JdbcTemplate jdbcTemplate;
 
     @Override
+    public void create(User user) {
+
+    }
+
+    @Override
+    public User read(String lastName) {
+        return null;
+    }
+
+    @Override
+    public void update(User user) {
+
+    }
+
+    @Override
+    public void delete(String lastName) {
+
+    }
+
+    @Override
     public List<User> loadAllUsers() {
         String sql = "SELECT * FROM tbl_user";
         RowMapper<User> rowMapper = (rs, rowNum) -> {
